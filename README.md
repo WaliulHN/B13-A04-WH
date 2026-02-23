@@ -1,83 +1,76 @@
-## Welcome To ( সহজ সরল সিম্পল ) Assignment - 4 
+1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 
 
----
-# 📅 Deadline For 60 marks: 23th February, 2026 (11:59 pm ⏱️)
-# 📅 Deadline For 50 marks: 24th February, 2026 (11:59 pm ⏱️)
-# 📅 Deadline For 30 marks: Any time after 24th February.
+getElementById – This selects only ONE element using its ID. Since ID is unique, it returns a single element directly. It's fast but limited.
+# Example : const total = document.getElementById('total-count');
 
 
-# Main Requirements
+getElementsByClassName – This selects ALL elements with the same class name. It returns a live HTMLCollection (updates automatically if DOM changes).
+# Example : const cards = document.getElementsByClassName('job-card');
 
-## Design Part
+querySelector / querySelectorAll – These are more flexible. querySelector returns the FIRST match, querySelectorAll returns ALL matches as a static NodeList. It can use any CSS selector like .class, #id, or tag.
+# Example : const firstBtn = document.querySelector('.btn');
+            const allBtns = document.querySelectorAll('.btn');
 
-## Dashboard
-- Website name and Create a dashboard like figma 
-- The section should be responsive for mobile devices. It is totally up to you. 
-
-## Available Jobs Section
-- A title on the left side, jobs count on the right side 
-- 3 different tab  below the section title 
-- Minimum 8 cards with:
-	- companyName
-	- position
-	- location
-	- type
-	- salary
-	- description
-	- 2 buttons: Interview, Rejected
-- By default all the jobs data will show on All tab, and the Interview, Rejected tab will show “No jobs Available” message with a subtitle below and an icon/image on the above
-
-- The section should be responsive for mobile devices. It is totally up to you.
-
---- 
-
-## Functionalities Part
-- Clicking on Interview button on the card 
-    - will add the data on Interview tab 
-    - add the status as Interview.
-    - Will increase the the count of interview in Dashboard 
-
-- Clicking on Rejected button on the card 
-    - will add the data on Rejected tab 
-    - add the status as Rejected.
-    - Will increase the the count of Rejected in Dashboard
-
-- Enable toggle between Interview and rejected button(you can select Rejected button after clicking on Interview, and Interview button after clicking on Rejected button). It will change the tab and dashboard count also. It will show tab wise jobs count on the right.
-
----
-
-# Challenges Requirements
-- Clicking on the delete button will remove that card from the UI, and the count will be deducted from the dashboard card and the main section.
-- No lorem ipsum text on your website. At least 8 meaningful commits in your project.  
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
+Special Note : In my assignment, I used getElementById for dashboard counters because each one has a unique ID.
 
 
-## Answers to Questions
+2. How do you create and insert a new element into the DOM?
 
-### 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
+There are 3 simple steps:
 
-### 2. How do you create and insert a new element into the DOM?
+i. Create the element
+: const card = document.createElement('div');
 
-### 3. What is Event Bubbling? And how does it work?
+ii. Add content or classes
+: card.className = 'job-card';
+  card.innerHTML = '<h3>Frontend Developer</h3>';
 
-### 4. What is Event Delegation in JavaScript? Why is it useful?
-
-### 5. What is the difference between preventDefault() and stopPropagation() methods?
-
----
-
-
-**Technology Stack:**
-- HTML
-- CSS (Vanilla/Tailwind/DaisyUI)
-- JavaScript (Vanilla)
+iii. Insert it into the page
+: jobsContainer.appendChild(card);
 
 
---- 
+3. What is Event Bubbling? And how does it work?
+Event Bubbling means when you click on a child element, the event travels UP to its parent elements.
 
-## What to submit: 
+Example:
 
-1. GitHub Repository Link: 
-2. Live Site Link: 
+<div onclick="parentClick()">     - Event reaches here last
+  <button onclick="childClick()"> - Event starts here
+</div>
+
+---If anyone click the button, first childClick() runs, then parentClick() runs. The event "bubbles up" from inside to outside.
+In my assignment, when I click the "Interview" button inside a card, the click event could bubble up to the card or container. That's why I added specific onclick handlers on buttons only.
+
+
+4. What is Event Delegation in JavaScript? Why is it useful?
+Event Delegation means instead of adding event listeners to every single child element, you add ONE listener to the parent and check which child was clicked using event.target.
+
+Example:
+
+// Instead of this (bad for many items):
+buttons.forEach(btn => btn.addEventListener('click', handleClick));
+
+// Do this (better):
+container.addEventListener('click', (e) => {
+    if(e.target.classList.contains('btn')) {
+        handleClick(e);
+    }
+});
+
+# Why it's useful:
+1. Better performance (fewer listeners)
+2. Works on new elements added later (like my job cards)
+3. Less memory usage
+
+#Special note : In my assignment, I used onclick directly in HTML for simplicity, but event delegation would be better if I had 100+ job cards.
+
+5. What is the difference between preventDefault() and stopPropagation() methods?
+
+
+Ans- 
+
+*preventDefault()* stops the browser's default behavior. For example, stopping a form from submitting or a link from opening a new page.
+*stopPropagation()* stops the event from bubbling up to parent elements. It keeps the event contained within the specific element.
+
+In this assignment, I didn't need preventDefault() because I am not using forms, but I learned that it is essential for form handling.*
