@@ -73,4 +73,4 @@ Ans-
 *preventDefault()* stops the browser's default behavior. For example, stopping a form from submitting or a link from opening a new page.
 *stopPropagation()* stops the event from bubbling up to parent elements. It keeps the event contained within the specific element.
 
-In this assignment, I didn't need preventDefault() because I am not using forms, but I learned that it is essential for form handling.*
+In this assignment, I didn't need preventDefault() because I am not using forms, but I learned that it is essential for form handling.

@@ -6,7 +6,6 @@
     <title>Job Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f3f4f6; line-height: 1.6; }
 
@@ -15,108 +14,74 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
 
         .stats { display: grid; grid-template-columns: 1fr; gap: 1rem; background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem; }
-
         @media (min-width: 1024px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+
         .stat { text-align: center; padding: 1rem; }
-
         .stat-title { font-size: 0.875rem; color: #6b7280; margin-bottom: 0.5rem; }
-
         .stat-value { font-size: 2rem; font-weight: bold; }
 
         .text-info { color: #06b6d4; }
-
         .text-warning { color: #f59e0b; }
-
         .text-error { color: #ef4444; }
 
         .card { background: white; border-radius: 0.75rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); overflow: hidden; }
-
         .card-body { padding: 1.5rem; }
-
         .card-title { font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem; }
 
         .tabs { display: flex; justify-content: center; gap: 0.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
-
         .tab { padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; background: #f3f4f6; border: none; font-size: 0.875rem; }
 
         .tab-active { background: #111827; color: white; }
-
         .grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; min-height: 400px; padding: 1rem 0; }
-
         @media (min-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 
         @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-
         .job-card { background: white; border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-
         .job-card h3 { font-size: 1.125rem; margin-bottom: 0.25rem; }
 
         .company { color: #6366f1; font-weight: 500; margin-bottom: 1rem; }
-
         .job-info { font-size: 0.875rem; color: #6b7280; margin-bottom: 0.5rem; }
-
         .job-info i { width: 1.25rem; }
 
         .description { font-size: 0.875rem; color: #6b7280; margin: 1rem 0; }
-
         .btn-group { display: flex; gap: 0.5rem; margin-top: 1rem; }
 
         .btn { flex: 1; padding: 0.5rem 1rem; border: none; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-
         .btn-outline { background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }
-
         .btn-warning { background: #f59e0b; color: white; }
 
         .btn-error { background: #ef4444; color: white; }
-
         .btn-ghost { background: transparent; color: #ef4444; border: none; }
 
         .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; background: #111827; color: white; }
-
         .badge-sm { font-size: 0.75rem; padding: 0.125rem 0.5rem; background: #e5e7eb; margin-left: 0.5rem; color: #374151; }
 
         .empty-state { display: none; flex-direction: column; align-items: center; justify-content: center; padding: 3rem; text-align: center; }
-
         .empty-state img { width: 8rem; height: 8rem; margin-bottom: 1rem; opacity: 0.5; }
-
         .hidden { display: none; }
 
         .flex { display: flex; }
-
         .flex-col { flex-direction: column; }
-
         .items-center { align-items: center; }
 
         .justify-between { justify-content: space-between; }
-
         .gap-4 { gap: 1rem; }
-
         .border-b { border-bottom: 1px solid #e5e7eb; }
 
         .pb-4 { padding-bottom: 1rem; }
-
         .mb-10 { margin-bottom: 2.5rem; }
-
         .mt-4 { margin-top: 1rem; }
 
         .mb-4 { margin-bottom: 1rem; }
-
         .opacity-70 { opacity: 0.7; }
-
         .text-sm { font-size: 0.875rem; }
-
         .text-xl { font-size: 1.25rem; }
-
         .font-bold { font-weight: bold; }
-
         .w-5 { width: 1.25rem; }
+        .text-primary { color: #6366f1; }
 
-        .text-primary { color: #6366f1; 
-        }
         @media (max-width: 767px) { .flex-col-mobile { flex-direction: column; } }
-
         @media (min-width: 768px) { .md\:flex-row { flex-direction: row; } }
-        
     </style>
 </head>
 <body>
@@ -125,6 +90,7 @@
         <h1 class="text-xl font-bold">JobTracker Dashboard</h1>
         <span class="text-sm opacity-70">Assignment 4</span>
     </nav>
+
 
     <div class="container">
         
@@ -146,12 +112,12 @@
         <section class="card">
             <div class="card-body">
                 
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4 border-b pb-4">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 border-b pb-4">
                     <h2 class="card-title">Available Jobs</h2>
                     <div class="badge" id="job-list-count">0 Jobs Found</div>
                 </div>
 
-                <div class="tabs">
+        <div class="tabs">
                     <button onclick="filterJobs('all')" id="tab-all" class="tab tab-active">
                         All <span id="count-all" class="badge-sm">0</span>
                     </button>
@@ -163,7 +129,7 @@
                     </button>
                 </div>
 
-                <div id="jobs-container" class="grid"></div>
+        <div id="jobs-container" class="grid"></div>
 
                 <div id="empty-state" class="empty-state">
                     <img src="https://cdn-icons-png.flaticon.com/512/7486/7486747.png" alt="No Jobs">
@@ -177,14 +143,14 @@
 
     <script>
         const initialJobs = [
-            { id: 1, companyName: "TechFlow Solutions", position: "Frontend Developer", location: "Dhaka, Remote", type: "Full Time", salary: "$1200 - $1500", description: "Looking for a React expert to build modern dashboards.", status: "all" },
-            { id: 2, companyName: "GreenLeaf Agro", position: "Data Analyst", location: "Chittagong", type: "Part Time", salary: "$800 - $1000", description: "Analyze crop data to improve yield efficiency.", status: "all" },
-            { id: 3, companyName: "SkyHigh Aviation", position: "UI/UX Designer", location: "Sylhet", type: "Contract", salary: "$1000 - $1300", description: "Design intuitive interfaces for flight booking systems.", status: "all" },
-            { id: 4, companyName: "CodeCrafters Ltd", position: "Backend Engineer", location: "Remote", type: "Full Time", salary: "$1500 - $2000", description: "Node.js developer needed for scalable API architecture.", status: "all" },
-            { id: 5, companyName: "EduSmart BD", position: "Content Writer", location: "Dhaka", type: "Full Time", salary: "$500 - $700", description: "Create engaging educational content for students.", status: "all" },
-            { id: 6, companyName: "FinTech Hub", position: "Product Manager", location: "Gulshan, Dhaka", type: "Full Time", salary: "$2000 - $2500", description: "Lead product strategy for our new banking app.", status: "all" },
-            { id: 7, companyName: "HealthPlus", position: "Mobile App Dev", location: "Remote", type: "Contract", salary: "$1100 - $1400", description: "Flutter developer for patient management app.", status: "all" },
-            { id: 8, companyName: "Creative Minds", position: "Graphic Designer", location: "Uttara, Dhaka", type: "Part Time", salary: "$400 - $600", description: "Design social media assets and branding materials.", status: "all" }
+        { id: 1, companyName: "TechFlow Solutions", position: "Frontend Developer", location: "Dhaka, Remote", type: "Full Time", salary: "$1200 - $1500", description: "Looking for a React expert to build modern dashboards.", status: "all" },
+        { id: 2, companyName: "GreenLeaf Agro", position: "Data Analyst", location: "Chittagong", type: "Part Time", salary: "$800 - $1000", description: "Analyze crop data to improve yield efficiency.", status: "all" },
+        { id: 3, companyName: "SkyHigh Aviation", position: "UI/UX Designer", location: "Sylhet", type: "Contract", salary: "$1000 - $1300", description: "Design intuitive interfaces for flight booking systems.", status: "all" },
+        { id: 4, companyName: "CodeCrafters Ltd", position: "Backend Engineer", location: "Remote", type: "Full Time", salary: "$1500 - $2000", description: "Node.js developer needed for scalable API architecture.", status: "all" },
+        { id: 5, companyName: "EduSmart BD", position: "Content Writer", location: "Dhaka", type: "Full Time", salary: "$500 - $700", description: "Create engaging educational content for students.", status: "all" },
+        { id: 6, companyName: "FinTech Hub", position: "Product Manager", location: "Gulshan, Dhaka", type: "Full Time", salary: "$2000 - $2500", description: "Lead product strategy for our new banking app.", status: "all" },
+        { id: 7, companyName: "HealthPlus", position: "Mobile App Dev", location: "Remote", type: "Contract", salary: "$1100 - $1400", description: "Flutter developer for patient management app.", status: "all" },
+        { id: 8, companyName: "Creative Minds", position: "Graphic Designer", location: "Uttara, Dhaka", type: "Part Time", salary: "$400 - $600", description: "Design social media assets and branding materials.", status: "all" }
         ];
 
         let jobs = [...initialJobs];
@@ -207,7 +173,7 @@
                 return job.status === currentTab;
             });
 
-            jobListCount.innerText = ${filteredJobs.length} Jobs Found;
+            jobListCount.innerText = `${filteredJobs.length} Jobs Found`;
 
             if (filteredJobs.length === 0) {
                 jobsContainer.classList.add('hidden');
@@ -222,21 +188,21 @@
                     const interviewActive = job.status === 'interview';
                     const rejectedActive = job.status === 'rejected';
 
-                card.innerHTML = `
-                     <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <div>
-                    <h3>${job.position}</h3>
-                    <p class="company">${job.companyName}</p>
+                    card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                            <div>
+                                <h3>${job.position}</h3>
+                                <p class="company">${job.companyName}</p>
                     </div>
-                <button onclick="deleteJob(${job.id})" class="btn btn-ghost" style="padding: 0.25rem;"><i class="fa-solid fa-trash"></i></button>
-                        </div>
-                        <div class="job-info"><i class="fa-solid fa-location-dot w-5"></i> ${job.location}</div>
-                        <div class="job-info"><i class="fa-solid fa-briefcase w-5"></i> ${job.type}</div>
-                        <div class="job-info"><i class="fa-solid fa-money-bill w-5"></i> ${job.salary}</div>
+                            <button onclick="deleteJob(${job.id})" class="btn btn-ghost" style="padding: 0.25rem;"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    <div class="job-info"><i class="fa-solid fa-location-dot w-5"></i> ${job.location}</div>
+                    <div class="job-info"><i class="fa-solid fa-briefcase w-5"></i> ${job.type}</div>
+                    <div class="job-info"><i class="fa-solid fa-money-bill w-5"></i> ${job.salary}</div>
                         <p class="description">${job.description}</p>
-                        <div class="btn-group">
-                <button onclick="updateStatus(${job.id}, 'interview')" class="btn" style="${interviewActive ? 'background: #f59e0b; color: white;' : 'background: #f3f4f6; color: #374151; border: 1px solid #d1d5db;'}">Interview</button>
-                <button onclick="updateStatus(${job.id}, 'rejected')" class="btn" style="${rejectedActive ? 'background: #ef4444; color: white;' : 'background: #f3f4f6; color: #374151; border: 1px solid #d1d5db;'}">Rejected</button>
+                    <div class="btn-group">
+                            <button onclick="updateStatus(${job.id}, 'interview')" class="btn" style="${interviewActive ? 'background: #f59e0b; color: white;' : 'background: #f3f4f6; color: #374151; border: 1px solid #d1d5db;'}">Interview</button>
+                            <button onclick="updateStatus(${job.id}, 'rejected')" class="btn" style="${rejectedActive ? 'background: #ef4444; color: white;' : 'background: #f3f4f6; color: #374151; border: 1px solid #d1d5db;'}">Rejected</button>
                         </div>
                     `;
                     jobsContainer.appendChild(card);
@@ -257,7 +223,7 @@
         function filterJobs(tab) {
             currentTab = tab;
             ['all', 'interview', 'rejected'].forEach(t => {
-                const btn = document.getElementById(tab-${t});
+                const btn = document.getElementById(`tab-${t}`);
                 if (t === tab) btn.classList.add('tab-active');
                 else btn.classList.remove('tab-active');
             });
